@@ -44,13 +44,13 @@ def fight_begin
     end
 end
 
-
-
 def perform
 new_player1
 new_player2
 presentation
 fight_begin
 end
+
+
 
 binding.pry
