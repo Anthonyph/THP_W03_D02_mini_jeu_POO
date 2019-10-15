@@ -13,7 +13,7 @@ def new_player2
   return player2
 end
 
-def presentation
+def presentation #méthode de présentation
   player1 = new_player1
   player2 = new_player2
   puts "Voici l'état de chaque joueurs :"
@@ -21,13 +21,13 @@ def presentation
   player2.show_state
 end
 
-def fight_begin
+def fight_begin #méthode fight
   player1 = new_player1
   player2 = new_player2
   puts " "
   puts "Passons à la phase d'attaque !"
   puts " "
-    while player1.life_points > 0 && player2.life_points >0
+    while player1.life_points > 0 && player2.life_points >0 #
     player1.attacks(player2)
       if player2.life_points <= 0
       break

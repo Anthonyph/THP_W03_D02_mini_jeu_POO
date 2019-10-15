@@ -4,7 +4,6 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
-
 def welcome_message
   puts "------------------------------------------------"
   puts "|Bienvenue dans 'ILS VEULENT TOUS MA POO' !      |"
