@@ -27,13 +27,13 @@ def fight_begin #méthode fight
   puts " "
   puts "Passons à la phase d'attaque !"
   puts " "
-    while player1.life_points > 0 && player2.life_points >0 #
+    while player1.life_points > 0 && player2.life_points >0 #boucle du combat
     player1.attacks(player2)
-      if player2.life_points <= 0
+      if player2.life_points <= 0 #sort de la boucle si le joueur est mort
       break
       end
     player2.attacks(player1)      
-    if player1.life_points < 0
+    if player1.life_points < 0 #sort de la boucle si le joueur est mort
     break
     end
     puts " "
