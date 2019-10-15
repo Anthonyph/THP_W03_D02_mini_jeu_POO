@@ -22,9 +22,10 @@ class Player
     self.life_points = self.life_points - life_damage
     if (self.life_points) <= 0 
       puts "le joueur #{self.name} à été tué ! Il n'a plus de point de vie."
+      puts " "
     else
     puts "#{self.name} n'a plus que #{self.life_points} point(s) de vie"
-    puts ""
+    puts " "
     end
   end
 
@@ -73,6 +74,7 @@ class HumanPlayer < Player
       puts "le joueur #{self.name} à été tué !"
     else
     puts "#{self.name} n'a plus que #{self.human_life_points} point(s) de vie"
+    puts " "
     end
   end
 
@@ -90,18 +92,22 @@ class HumanPlayer < Player
   def search_weapon
     initial_weapon_level = @weapon_level
     @weapon_level = rand(1..6) 
-    puts " tu as trouvé une arme de niveau #{self.weapon_level}"
+    puts ""
+    puts "Tu as trouvé une arme de niveau #{self.weapon_level}"
       if self.weapon_level > initial_weapon_level
-      puts "Super ! Cette arme est meilleure que ton arme actuelle : on la garde"
-      else 
+    puts "Super ! Cette arme est meilleure que ton arme actuelle : on la garde"
+    puts " "  
+    else 
       puts "ça ne vaut pas le coup de la changer, on garde et on continue"
-      @weapon_level = initial_weapon_level
+    puts ""  
+    @weapon_level = initial_weapon_level
       end 
   end
 
   def search_health_pack 
     dice_value = rand(1..6)
     initial_life_point = @human_life_points
+    puts " "
     puts "Lançons les dés, tu as fait #{dice_value} :"
     case 
       when dice_value == 1
