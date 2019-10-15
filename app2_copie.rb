@@ -20,32 +20,15 @@ username = gets.chomp
 user = HumanPlayer.new(username)
 end
 
-
-def new_player1
-  player1 = Player.new("Josiane")
-  return player1
-end
-
-def new_player2
-  player2 = Player.new("José") 
-  return player2
-end
-
-def enemies_array
-player1 = new_player1
-player2 = new_player2
-enemies = []
-enemies << player1
-enemies << player2
-return enemies
-end
-
 def fight
-    player1 = new_player1
-    player2 = new_player2
-    user = create_human_player
-    enemies = enemies_array
+  player1 = Player.new("Josiane")
+  player2 = Player.new("José") 
+  enemies = []
+  enemies << player1
+  enemies << player2
+  user = create_human_player  
     while user.human_life_points >0 && (player1.life_points > 0 || player2.life_points >0)
+    puts ""
     user.show_state
     puts ""
     puts "Quelle action veux-tu effectuer ?"
@@ -54,8 +37,12 @@ def fight
     puts "s - chercher à se soigner"
     puts " "
     puts "attaquer un joueur en vue : "
-    puts "0 #{player1.show_state}"
-    puts "1 #{player2.show_state}"
+    puts " "
+    print "0 - "
+    print player1.show_state
+    print "1 - "
+    print player2.show_state
+    puts ""
     
     puts "Quel est ton choix ? "
     print " > "
@@ -68,16 +55,22 @@ def fight
           when choice == "0"
           user.attacks(player1) 
           when choice == "1"
-          user.attacks(player2)  
+          user.attacks(player2)
+          else 
+            puts "je ne comprends pas votre requête"
+            puts "je relance le jeu"
+            break
         end #case
-    puts " "
-    puts " c'est le moment pour les ennemis de jouer"
     enemies.each do |x|
-      if x.life_points > 0
-      x.attacks(user)
-      
-      end #if
-      end #each
+        if x.life_points > 0
+          puts " "
+          puts "C'est au tour de #{x.name} de jouer"
+          puts " "
+          x.attacks(user)
+          puts x.name
+        end #if
+      end #each    
+      #p enemies
   end #while
 end 
 

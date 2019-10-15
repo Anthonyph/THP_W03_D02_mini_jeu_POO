@@ -12,22 +12,28 @@ class Player
 
   def show_state
   #  return @life_points
+  #if self.life_points < 0
+   # life_points = 0
+  # end
     puts "#{self.name} à #{self.life_points} point(s) de vie"
   end
 
   def gets_damage(life_damage=3)
     self.life_points = self.life_points - life_damage
     if (self.life_points) <= 0 
-      puts "le joueur #{self.name} à été tué !"
+      puts "le joueur #{self.name} à été tué ! Il n'a plus de point de vie."
     else
     puts "#{self.name} n'a plus que #{self.life_points} point(s) de vie"
+    puts ""
     end
   end
 
   def attacks(player) #joueur qui subit l'attaque
+  puts " "
   puts "le joueur #{self.name} attaque le joueur #{player.name}"
   damage = compute_damage
   puts "et lui inflige #{damage} point(s) de dommage(s)"
+  puts " "
   player.gets_damage(life_damage=damage)
   end
 
@@ -71,9 +77,13 @@ class HumanPlayer < Player
   end
 
   def attacks(player) #joueur qui subit l'attaque
+  puts " "
+  puts " "
   puts "le joueur #{self.name} attaque le joueur #{player.name}"
   damage = compute_damage
   puts "et lui inflige #{damage} point(s) de dommage(s)"
+  puts " "
+  puts " "
   player.gets_damage(human_life_damage=damage)
   end
 
@@ -121,7 +131,6 @@ class HumanPlayer < Player
     end
   end
 
-binding.pry
 end # of class 
 
 ##################### fin app 2.0 du jeu ######################## 

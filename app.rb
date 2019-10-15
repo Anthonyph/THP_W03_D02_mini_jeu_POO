@@ -32,7 +32,10 @@ def fight_begin
       if player2.life_points <= 0
       break
       end
-    player2.attacks(player1)
+    player2.attacks(player1)      
+    if player1.life_points < 0
+    break
+    end
     puts " "
     puts "#######################################################"
     puts " "
@@ -42,6 +45,7 @@ def fight_begin
     player2.show_state
     puts " "
     end
+    
 end
 
 def perform
@@ -51,6 +55,6 @@ presentation
 fight_begin
 end
 
+perform
 
-
-binding.pry
+#binding.pry
